@@ -20,7 +20,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-xl font-semibold text-accent">MailPro</span>
+                <span className="text-xl font-semibold text-accent">Jazon</span>
+                <span className="ml-2 text-xs text-gray-500">(lite)</span>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                 {navItems.map(({ path, icon: Icon, label }) => (

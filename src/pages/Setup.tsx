@@ -8,7 +8,7 @@ const Setup = () => {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="space-y-2 mb-8 text-center">
-        <h1 className="text-3xl font-bold tracking-tight">Welcome to MailPro</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Welcome to Jazon</h1>
         <p className="text-gray-500">Let's get your email marketing setup ready</p>
       </div>
 
