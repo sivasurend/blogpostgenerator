@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Setup from "./pages/Setup";
 import Prospects from "./pages/Prospects";
+import EmailGenerator from "./pages/EmailGenerator";
 import Tracking from "./pages/Tracking";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Setup />} />
             <Route path="/prospects" element={<Prospects />} />
+            <Route path="/email-generator" element={<EmailGenerator />} />
             <Route path="/tracking" element={<Tracking />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

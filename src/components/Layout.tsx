@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Mail, Users, Settings } from "lucide-react";
+import { Mail, Users, Settings, MessageSquare } from "lucide-react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -10,6 +10,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const navItems = [
     { path: "/", icon: Settings, label: "Setup" },
     { path: "/prospects", icon: Users, label: "Prospects" },
+    { path: "/email-generator", icon: MessageSquare, label: "Email Generator" },
     { path: "/tracking", icon: Mail, label: "Email Tracking" },
   ];
 
