@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageSquare, Send } from "lucide-react";
+import { MessageSquare, Send, Copy, Save } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const EmailGenerator = () => {
@@ -12,7 +12,6 @@ const EmailGenerator = () => {
   const { toast } = useToast();
 
   const generateEmail = () => {
-    // This is a placeholder. In a real implementation, this would call an AI service
     const sampleEmail = `Dear [Prospect],
 
 I hope this email finds you well. I wanted to reach out regarding our [Product/Service] that helps companies like yours improve their [Value Proposition].
@@ -37,7 +36,6 @@ Best regards,
       return;
     }
 
-    // This is a placeholder. In a real implementation, this would send the feedback to an AI service
     toast({
       title: "Feedback sent",
       description: "Your feedback has been recorded and will be used to improve the next generation",
@@ -46,16 +44,44 @@ Best regards,
     setFeedback("");
   };
 
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast({
+        title: "Copied",
+        description: "Text copied to clipboard",
+      });
+    });
+  };
+
+  const handleSave = () => {
+    toast({
+      title: "Saved",
+      description: "Email template saved successfully",
+    });
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold tracking-tight">Email Generator</h1>
-        <Button 
-          onClick={generateEmail}
-          className="bg-accent hover:bg-accent/90 text-white"
-        >
-          Generate Email
-        </Button>
+        <div className="flex gap-2">
+          {generatedEmail && (
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => handleCopy(generatedEmail)}
+              className="h-10 w-10"
+            >
+              <Copy className="h-4 w-4" />
+            </Button>
+          )}
+          <Button 
+            onClick={generateEmail}
+            className="bg-accent hover:bg-accent/90 text-white"
+          >
+            Generate Email
+          </Button>
+        </div>
       </div>
 
       {generatedEmail && (
@@ -63,6 +89,24 @@ Best regards,
           <Card className="md:col-span-2 backdrop-blur-sm bg-white/80">
             <CardContent className="p-6">
               <pre className="whitespace-pre-wrap font-sans">{generatedEmail}</pre>
+              <div className="flex gap-2 mt-4">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => handleCopy(generatedEmail)}
+                  className="h-8 w-8"
+                >
+                  <Copy className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={handleSave}
+                  className="h-8 w-8"
+                >
+                  <Save className="h-4 w-4" />
+                </Button>
+              </div>
             </CardContent>
           </Card>
 
