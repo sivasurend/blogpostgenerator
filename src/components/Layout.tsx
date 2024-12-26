@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Mail, Users, Settings, MessageSquare } from "lucide-react";
+import { Settings, FileText, PenTool } from "lucide-react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -9,9 +9,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const navItems = [
     { path: "/", icon: Settings, label: "Setup" },
-    { path: "/prospects", icon: Users, label: "Prospects" },
-    { path: "/email-generator", icon: MessageSquare, label: "Email Generator" },
-    { path: "/tracking", icon: Mail, label: "Email Tracking" },
+    { path: "/content-input", icon: FileText, label: "Content Input" },
+    { path: "/blog-generator", icon: PenTool, label: "Blog Generator" },
   ];
 
   return (
@@ -21,8 +20,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-xl font-semibold text-accent">Jazon</span>
-                <span className="ml-2 text-xs text-gray-500">(lite)</span>
+                <span className="text-xl font-semibold text-accent">Blog Post Generator</span>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                 {navItems.map(({ path, icon: Icon, label }) => (

@@ -5,9 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Setup from "./pages/Setup";
-import Prospects from "./pages/Prospects";
-import EmailGenerator from "./pages/EmailGenerator";
-import Tracking from "./pages/Tracking";
+import ContentInput from "./pages/ContentInput";
+import BlogGenerator from "./pages/BlogGenerator";
 
 const queryClient = new QueryClient();
 
@@ -20,9 +19,8 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Setup />} />
-            <Route path="/prospects" element={<Prospects />} />
-            <Route path="/email-generator" element={<EmailGenerator />} />
-            <Route path="/tracking" element={<Tracking />} />
+            <Route path="/content-input" element={<ContentInput />} />
+            <Route path="/blog-generator" element={<BlogGenerator />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
